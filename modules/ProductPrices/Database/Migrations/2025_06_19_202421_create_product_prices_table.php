@@ -16,7 +16,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('product_prices', function (Blueprint $table) {
-            $table->uuid();
+            $table->uuid('id');
             $table->foreignUuid('product_id');
             $table->foreignUuid('currency_id');
             $table->decimal('price');
