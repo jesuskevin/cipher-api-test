@@ -3,6 +3,8 @@
 namespace Modules\Products\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\ProductPrices\Eloquents\Contracts\ProductPriceServiceInterface;
+use Modules\ProductPrices\Eloquents\Services\ProductPriceService;
 
 class ProductsServiceProvider extends ServiceProvider
 {
@@ -21,6 +23,6 @@ class ProductsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(ProductPriceServiceInterface::class, ProductPriceService::class);
     }
 }

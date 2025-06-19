@@ -3,6 +3,7 @@
 namespace Modules\ProductPrices\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateProductPriceRequest extends FormRequest
 {
@@ -14,7 +15,16 @@ class UpdateProductPriceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'currency_id' => [
+                'required',
+                'uuid',
+                Rule::exists('currencies', 'id'),
+            ],
+            'price' => [
+                'required',
+                'numeric',
+                'min:0',
+            ],
         ];
     }
 }
