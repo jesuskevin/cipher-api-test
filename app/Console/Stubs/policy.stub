@@ -1,0 +1,29 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Models\User;
+use {{ modelNamespace }};
+
+class {{ resourceName }}
+{
+    public function view(User $user, {{ modelName }} ${{ moduleInjected }})
+    {
+        //
+    }
+
+    public function create(User $user)
+    {
+        //
+    }
+
+    public function update(User $user, {{ modelName }} ${{ moduleInjected }})
+    {
+        //
+    }
+
+    public function delete(User $user, {{ modelName }} ${{ moduleInjected }})
+    {
+        //
+    }
+}
