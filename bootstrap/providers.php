@@ -6,4 +6,5 @@ return [
     Modules\Accesscontrol\Providers\AccesscontrolServiceProvider::class,
     Modules\Products\Providers\ProductsServiceProvider::class,
     Modules\Currencies\Providers\CurrenciesServiceProvider::class,
+    Modules\ProductPrices\Providers\ProductPricesServiceProvider::class,
 ];
