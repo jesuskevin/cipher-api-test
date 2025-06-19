@@ -5,7 +5,7 @@ namespace Modules\Currencies\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CurrenciesController extends Controller
+class CurrencyController extends Controller
 {
     public function index()
     {
