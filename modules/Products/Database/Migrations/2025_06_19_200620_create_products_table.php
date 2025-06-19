@@ -16,7 +16,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
+            $table->uuid();
+            $table->string('name');
+            $table->string('description');
+            $table->decimal('price');
+            $table->foreignUuid('currency_id');
+            $table->decimal('tax_cost')->default(0);
+            $table->decimal('manufacturing_cost')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
