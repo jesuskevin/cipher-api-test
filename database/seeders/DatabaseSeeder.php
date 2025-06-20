@@ -9,6 +9,7 @@ use Modules\Accesscontrol\Database\Seeders\PermissionSeeder;
 use Modules\Accesscontrol\Database\Seeders\RoleAndPermissionSeeder;
 use Modules\Accesscontrol\Database\Seeders\RoleSeeder;
 use Modules\Accesscontrol\Models\Role;
+use Modules\ProductPrices\Models\ProductPrice;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,5 +31,7 @@ class DatabaseSeeder extends Seeder
 
         $superAdminRole = Role::where('name', 'Super admin')->first();
         $user->roles()->attach($superAdminRole);
+
+        ProductPrice::factory(10)->create();
     }
 }
