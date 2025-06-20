@@ -19,7 +19,7 @@ class ProductService implements ProductServiceInterface
 
     public function index(): LengthAwarePaginator
     {
-        return $this->model->paginate();
+        return $this->model->paginate(10);
     }
 
     public function store(StoreProductRequest $request): Product
@@ -52,13 +52,13 @@ class ProductService implements ProductServiceInterface
 
     public function prices(string $id): LengthAwarePaginator
     {
-        $product = $this->model->findOrFail($id);
-        return $product->prices()->paginate();
+        $product = $this->show($id);
+        return $product->prices()->paginate(10);
     }
 
     public function storePrice(StoreProductPriceRequest $request, string $id): ProductPrice
     {
-        $product = $this->model->findOrFail($id);
+        $product = $this->show($id);
         $productPrice = $this->productPriceModel->create([
             'product_id' => $product->id,
             ...$request->validated(),

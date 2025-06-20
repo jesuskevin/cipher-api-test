@@ -3,6 +3,7 @@
 namespace Modules\Products\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Modules\ProductPrices\Http\Requests\StoreProductPriceRequest;
 use Modules\ProductPrices\Http\Resources\ProductPriceResource;
@@ -45,6 +46,8 @@ class ProductController extends Controller
             return new ProductResource($this->productService->update($request, $id));
         } catch (\Exception $e) {
             logger()->error($e->getMessage());
+
+            if ($e instanceof ModelNotFoundException) return response()->json(['message ' => $e->getMessage()], Response::HTTP_NOT_FOUND);
             return response()->json(['message' => 'Somenthing went wrong. Please try again later or contact support if problem persist.'], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
@@ -56,6 +59,8 @@ class ProductController extends Controller
             return response()->json([], Response::HTTP_NO_CONTENT);
         } catch (\Exception $e) {
             logger()->error($e->getMessage());
+
+            if ($e instanceof ModelNotFoundException) return response()->json(['message ' => $e->getMessage()], Response::HTTP_NOT_FOUND);
             return response()->json(['message' => 'Somenthing went wrong. Please try again later or contact support if problem persist.'], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
@@ -66,6 +71,8 @@ class ProductController extends Controller
            return ProductPriceResource::collection($this->productService->prices($id));
         } catch (\Exception $e) {
             logger()->error($e->getMessage());
+
+            if ($e instanceof ModelNotFoundException) return response()->json(['message ' => $e->getMessage()], Response::HTTP_NOT_FOUND);
             return response()->json(['message' => 'Somenthing went wrong. Please try again later or contact support if problem persist.'], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
@@ -76,6 +83,8 @@ class ProductController extends Controller
            return new ProductPriceResource($this->productService->storePrice($request, $id));
         } catch (\Exception $e) {
             logger()->error($e->getMessage());
+
+            if ($e instanceof ModelNotFoundException) return response()->json(['message ' => $e->getMessage()], Response::HTTP_NOT_FOUND);
             return response()->json(['message' => 'Somenthing went wrong. Please try again later or contact support if problem persist.'], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
