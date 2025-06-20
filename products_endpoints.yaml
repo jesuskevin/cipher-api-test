@@ -1,0 +1,272 @@
+type: collection.insomnia.rest/5.0
+name: Products
+meta:
+  id: wrk_7c7fbeea355e400ab4ebe0a8957d9691
+  created: 1750367037758
+  modified: 1750367055331
+  description: ""
+collection:
+  - url: http://127.0.0.1:8000/api/v1/products
+    name: Get Products
+    meta:
+      id: req_3dc067384e8043619f0bb84e7dfdb26c
+      created: 1750367037782
+      modified: 1750369640240
+      isPrivate: false
+      description: ""
+      sortKey: -1750367306810
+    method: GET
+    headers:
+      - id: pair_346141f019b54c99acd76aec1ec77b9c
+        name: User-Agent
+        value: insomnia/11.2.0
+        description: ""
+        disabled: false
+      - id: pair_5a76629344da4e21b0394bbee87a6e86
+        name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8000/api/v1/products
+    name: Create Product
+    meta:
+      id: req_6d29acf2e5ac45d38ea97cdc5d93a9a8
+      created: 1750367306710
+      modified: 1750368561224
+      isPrivate: false
+      description: ""
+      sortKey: -1750367306710
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Test Product",
+        	"description": "Lorem ipsum dolor sit amet.",
+        	"price": 9.99,
+        	"currency_id": "9f31f11c-0add-4c3d-b914-5f96719d7449",
+        	"tax_cost": "10",
+        	"manufacturing_cost": "5.99"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_e3eeb172ddc24c9b910a8a8b9e627910
+      - name: User-Agent
+        value: insomnia/11.2.0
+        id: pair_2a291c9166284f35b70f99c3c2062780
+      - id: pair_2ce99f4c8a1f4bc3833baa195008e55f
+        name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8000/api/v1/products/9f31f1a5-be24-4a5d-9291-4a7c1f4e79d9
+    name: Update Product
+    meta:
+      id: req_9ddb16130aa84562909bd8d65472b930
+      created: 1750368871374
+      modified: 1750369508715
+      isPrivate: false
+      description: ""
+      sortKey: -1750367306610
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Test Product edit",
+        	"description": "Lorem ipsum dolor sit amet..",
+        	"price": 9.98,
+        	"currency_id": "9f31f11c-0add-4c3d-b914-5f96719d7449",
+        	"tax_cost": "10.01",
+        	"manufacturing_cost": "5.98"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_fae08e97679547f5ae23685851b2c865
+      - name: User-Agent
+        value: insomnia/11.2.0
+        id: pair_5744e9cbfc4d47d180fa7b5da9433c17
+      - id: pair_65dd11e5e21b4facb13e11c14e51a5f1
+        name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8000/api/v1/products/9f31f1a5-be24-4a5d-9291-4a7c1f4e79d9
+    name: Show Product
+    meta:
+      id: req_05c5d8ad9181497ebf226987028165fb
+      created: 1750369538013
+      modified: 1750369660450
+      isPrivate: false
+      description: ""
+      sortKey: -1750367306760
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+        id: pair_19d6efd2af474c4bb91e48d0fd011eb0
+      - id: pair_c38dd94d30dc4b459477befd64a696d1
+        name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8000/api/v1/products/9f31f1a5-be24-4a5d-9291-4a7c1f4e79d9
+    name: Delete Product
+    meta:
+      id: req_19fd9b729b804cd088e1957c8e52e100
+      created: 1750369578113
+      modified: 1750369697158
+      isPrivate: false
+      description: ""
+      sortKey: -1750367306510
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+        id: pair_1f8fa129f48245b6a360fa2e749be2b4
+      - id: pair_977c17db980740718fec86b99cd535b3
+        name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8000/api/v1/products/9f31f1a5-be24-4a5d-9291-4a7c1f4e79d9/prices
+    name: Get Product Prices
+    meta:
+      id: req_693f44e558c944e19e545845b2125085
+      created: 1750371353178
+      modified: 1750371412352
+      isPrivate: false
+      description: ""
+      sortKey: -1750367306785
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+        id: pair_00aa3a4a84e643988619ec88229775f5
+      - id: pair_58781e8f4b9f463dbce701ea1c4fdf6a
+        name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8000/api/v1/products/9f31f1a5-be24-4a5d-9291-4a7c1f4e79d9/prices
+    name: Create Product Price
+    meta:
+      id: req_d29fe547282e4062b0c3a57ac44785ac
+      created: 1750372871095
+      modified: 1750373101200
+      isPrivate: false
+      description: ""
+      sortKey: -1750367306660
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"currency_id": "9f31f11c-0add-4c3d-b914-5f96719d7449",
+        	"price": 15.01
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_e3eeb172ddc24c9b910a8a8b9e627910
+      - name: User-Agent
+        value: insomnia/11.2.0
+        id: pair_2a291c9166284f35b70f99c3c2062780
+      - id: pair_2ce99f4c8a1f4bc3833baa195008e55f
+        name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_deb240d7b539caaf495dd38b3768c7df1fb97fe6
+    created: 1750367037762
+    modified: 1750368076063
+  cookies:
+    - key: XSRF-TOKEN
+      value: eyJpdiI6IkFNMGVHbGVSdFlkSkRPYmk4ZFdhS2c9PSIsInZhbHVlIjoiVjltRGVjQlVibFEwUG1FcVFsRjRkQkQ4dGNwL0hzbmJnODB3bG1GQlh6RFpJYzZmcGNNeUhNd0JzR29hS2tFZkhOc2gzRTFUR1JjQ3pzMkhpOTQvMEVOcll2WGdzejBTMnM3bmU5TzFwUXZ3Sys4MkQ4WVA3SnZqcTQrdjRJQVYiLCJtYWMiOiJkYzRiN2RiNmI1YTg0Mzg4ZjZhMDY4YzU3MDI4ZGVlYzdhMWZkMDczODM1YjQ2YjIxZDU0YzM0NjBkYzU1MDcyIiwidGFnIjoiIn0%3D
+      maxAge: 7200
+      domain: 127.0.0.1
+      path: /
+      hostOnly: true
+      creation: 2025-06-19T21:21:16.060Z
+      lastAccessed: 2025-06-19T21:21:16.060Z
+      sameSite: lax
+      id: 08d09492-6cf2-4bf7-8b2e-1bcd60a8d642
+    - key: laravel_session
+      value: eyJpdiI6Im9pWXVrWEVRVHljcjBUUEpIMWZQcVE9PSIsInZhbHVlIjoiTVZJK01mVlJ4Q2wyVXNDSFZUcVpwNXJnVEx5d214WFBtMlBsbkFjNlBMYUZsaW1KWHFnMEJLYnpMNXRxR0Zmek4zSHNtb0NXMWdhVGFlNE52MnFRdE52Ukc1VGJNdlp2ekxYY3ExMkdYYXZsdzBpR053UUNsbmx1TVpCeHh6RysiLCJtYWMiOiI2YTYyOWE2MzYwYmM0MTdiMDVhY2JjMTI5OGM1NjBkMTdkMTA5MGQ2YmFiZjk3ODA1MjAxOTA2YjNjMmI1NDMwIiwidGFnIjoiIn0%3D
+      maxAge: 7200
+      domain: 127.0.0.1
+      path: /
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-06-19T21:21:16.063Z
+      lastAccessed: 2025-06-19T21:21:16.063Z
+      sameSite: lax
+      id: 125d6f2e-ac42-45e9-ac32-8fdcad5d21aa
+environments:
+  name: Base Environment
+  meta:
+    id: env_deb240d7b539caaf495dd38b3768c7df1fb97fe6
+    created: 1750367037761
+    modified: 1750367037761
+    isPrivate: false

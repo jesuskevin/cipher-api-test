@@ -1,49 +1,35 @@
-# Laravel modular project
 
-## Start the project
+# Cipher Api Test Documentation
 
-* Copy the **.env.example** file and rename it **.env**
-* Execute the next command: **composer install**
-* Start your docker
-* Execute the next command: **./vendor/bin/sail up -d**
+## Aclaracion
 
-## Estructure
+La estructura de este proyecto es modular asi que cada parte de la aplicacion es un modulo que se encuentra dentro de la carpeta modules en la raiz del proyecto.
 
-* Modules
-    * Security
-        * Database
-            * Migrations
-            * Seeders
-        * Eloquents
-            * Contracts
-            * Services
-        * Enums
-        * Http
-            * Controllers
-            * Middlewares
-            * Requests
-            * Resources
-        * Models
-        * Observers
-        * Policies
-        * Providers
-        * Routes
+## Instalar el proyecto
+Despues de haber clonado el repositorio de github. Lo abrimos en nuestro editor de codigo preferido, yo recomiendo visual studio code.
 
-## Commands
+Unas vez con el proyecto abierto en nuestro editor de codigo primero creamos un archivo `.env` en la raiz del proyecto y pegamos en este el contenido del archivo `.env.example`, luego abrimos una consola en la carpeta raiz del proyecto para ejecutar los comandos necesarios.
 
-| Command                                                                               | Description                                                           |
-|---------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| php artisan make:module ModuleName                                                    | Create a new module with the necessary directory structure            |
-| php artisan make:module-controller ModuleName ResourceController -p CustomPath        | Create a controller for a module                                      |
-| php artisan make:module-enum ModuleName ResourceEnum -p CustomPath                    | Create an enum for a module                                           |
-| php artisan make:module-interface ModuleName ResourceInterface -p CustomPath          | Create an interface for a module                                      |
-| php artisan make:module-middleware ModuleName ResourceMiddleware -p CustomPath        | Create a middleware for a module                                      |
-| php artisan make:module-migration ModuleName ResourceMigration                        | Create a migration for a module                                       |
-| php artisan make:module-model ModuleName ResourceModel -p CustomPath                  | Create a model for a module                                           |
-| php artisan make:module-policy ModuleName ResourcePolicy -m Model -p CustomPath       | Create a policy for a module                                          |
-| php artisan make:module-request ModuleName ResourceRequest -p CustomPath              | Create a request for a module                                         |
-| php artisan make:module-resource ModuleName ResourceResource -p CustomPath            | Create a resource for a module                                        |
-| php artisan make:module-seeder ModuleName ResourceSeeder -p CustomPath                | Create a seeder for a module                                          |
-| php artisan make:module-service ModuleName ResourceService -i Interface -p CustomPath | Create a service for a module (Need the same structure as interfaces) |
-| php artisan make:module-observer ModuleName ResourceObserver -m Model -p CustomPath   | Create an observer for a model|
+`composer install`
 
+Con este comando, vamos a instalar todas las dependencias de nuestro proyecto.
+
+`docker-compose up -d`
+
+Con este comando vamos a levantar nuestro contendor de docker donde correra nuestro proyecto.
+
+`docker exec -it <container_id> sh`
+
+Con este comando podremos abrir una terminar que esta atachada al contenedor donde se encuentra nuesta aplicacion. El comando para saber cual es el id de nuestro contenedor es el siguiente `docker ps` y de aqui buscamos el contenedor con el nombre `cipher-api-test-app` copiamos el id que vemos ahi y lo pegamos en el comando para acceder a la consola del proyecto.
+
+Una vez en la consola de docker ejecutamos los siguientes comandos.
+
+`php artisan key:generate`
+
+Esto para configurar nuestra variable de entorno `APP_KEY`.
+
+`php artisan migrate --seed`
+
+Esto para crear nuestras tablas en la base de datos y rellenarlas con data de prueba.
+
+Luego de esto podemos o bien importar los archivos de las colecciones con los endpoints a Insonmnia (ubicados en la raiz de el proyecto) para comenzar a probar nuestar API o utilizar el comando `php artisan test` para ejecutar los test de la aplicacion y verificar que todo funciona como deberia.
