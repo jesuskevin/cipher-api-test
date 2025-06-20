@@ -17,7 +17,7 @@ class CurrencyService implements CurrencyServiceInterface
 
     public function index(): LengthAwarePaginator
     {
-        return $this->model->paginate();
+        return $this->model->paginate(10);
     }
 
     public function store(StoreCurrencyRequest $request): Currency

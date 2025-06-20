@@ -3,7 +3,7 @@
 namespace Modules\Currencies\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Modules\Currencies\Eloquents\Services\CurrencyService;
 use Modules\Currencies\Http\Requests\StoreCurrencyRequest;
@@ -43,6 +43,8 @@ class CurrencyController extends Controller
             return new CurrencyResource($this->currencyService->update($request, $id));
         } catch (\Exception $e) {
             logger()->error($e->getMessage());
+
+            if ($e instanceof ModelNotFoundException) return response()->json(['message ' => $e->getMessage()], Response::HTTP_NOT_FOUND);
             return response()->json(['message' => 'Somenthing went wrong. Please try again later or contact support if problem persist.'], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
@@ -54,6 +56,8 @@ class CurrencyController extends Controller
             return response()->json([], Response::HTTP_NO_CONTENT);
         } catch (\Exception $e) {
             logger()->error($e->getMessage());
+
+            if ($e instanceof ModelNotFoundException) return response()->json(['message ' => $e->getMessage()], Response::HTTP_NOT_FOUND);
             return response()->json(['message' => 'Somenthing went wrong. Please try again later or contact support if problem persist.'], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
