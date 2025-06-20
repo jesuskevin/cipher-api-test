@@ -103,7 +103,7 @@ class ProductControllerTest extends TestCase
     {
         $product = Product::first();
 
-        $response = $this->getJson("/api/v1/products/{$product->id}");
+        $response = $this->getJson(self::$endpoint . "/{$product->id}");
 
         $response->assertStatus(200);
         $this->assertEquals($product->id, $response->json()['data']['id']);
@@ -129,7 +129,7 @@ class ProductControllerTest extends TestCase
             'manufacturing_cost' => 4.99,
         ];
 
-        $response = $this->putJson("/api/v1/products/{$product->id}", $productEdited);
+        $response = $this->putJson(self::$endpoint . "/{$product->id}", $productEdited);
 
         $response->assertStatus(200);
 
